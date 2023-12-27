@@ -8,7 +8,7 @@ from rest_framework.response import Response
 
 class StudentViewSet(viewsets.ViewSet):
     def list(self, request):
-        queryset = Student.obejcts.all()
+        queryset = Student.objects.all()
         serializer= StudentSerializer(queryset, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
     
@@ -19,7 +19,7 @@ class StudentViewSet(viewsets.ViewSet):
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
         return Response(data=serializer.error, status=status.HTTP_404_NOT_FOUND)
     
-    def retrive(self, request, pk=None):
+    def retrieve(self, request, pk=None):
         obj = get_object_or_404(Student, pk = pk)
         serializer = StudentSerializer(obj)
         return Response(data=serializer.data, status=status.HTTP_200_OK)

@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import SimpleRouter
-from ViewSet_27_12.app1.views import StudentViewSet
+from app1.views import StudentViewSet
 
 router = SimpleRouter()
 router.register('stu', StudentViewSet, basename='stu')
